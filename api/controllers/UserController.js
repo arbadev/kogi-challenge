@@ -31,7 +31,7 @@ export default class UserController extends Controller {
       const id = (this.params.id === 'me' ? user._id : this.params.id)
       const { FirebaseService } = proton.app.services
       const contacts = yield FirebaseService.getContacts(id)
-      this.response.body = { contacts }
+      this.response.body = contacts
       return this.response.status = 201
     } catch (err) {
       // proton.log.error('err @ UserController.retrieveContacts', err)
